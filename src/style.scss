@@ -15,7 +15,19 @@
     height: 800px;
     background-color: #202020;
   }
-  &__results {
+  &__results-wrapper {
+    display: flex;
+    position: absolute;
+    width: 525px;
+    height: 345px;
+    background-color: #202020;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    padding-left: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    color: #fdfdfd;
+    background-color: #202020;
   }
   &__buttons-wrapper {
     display: flex;
@@ -82,4 +94,30 @@
 
 .result:hover {
   background-color: #6ca7d5;
+}
+
+sup {
+  background-color: transparent;
+}
+
+.span-root {
+  background-color: transparent;
+}
+
+.results-wrapper {
+  background-color: transparent;
+  font-size: 80px;
+  white-space: normal;
+}
+
+.result-2 {
+  padding-bottom: 30px;
+}
+
+.display-hidden {
+  display: none;
+}
+
+.display-show {
+  display: block;
 }
