@@ -106,12 +106,12 @@
   background-color: #3b3b3b;
 }
 
-.result {
+.result-button {
   background-color: #76b9ed;
   color: #2a4254;
 }
 
-.result:hover {
+.result-button:hover {
   background-color: #6ca7d5;
 }
 
