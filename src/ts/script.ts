@@ -38,6 +38,8 @@ let sum: number = 0;
 let sum2: number = 0;
 let ifNumber: number | string;
 
+// Numbers
+
 function numbers(sum: number, number: number): number | string {
   if (sum === 0) {
     result_1.textContent = number.toString();
@@ -162,4 +164,42 @@ zero.addEventListener("click", (e) => {
   if (typeof ifNumber === "number") {
     sum = ifNumber;
   }
+});
+
+// Operators
+
+let newAddition: number = 0;
+let newSubtraction: number = 0;
+
+reset.addEventListener("click", (e) => {
+  e.preventDefault();
+  sum = 0;
+  result_1.textContent = sum.toString();
+  result_2.classList.add("display-hidden");
+  console.log(sum);
+});
+
+result_button.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (newAddition !== 0) {
+    result_2.textContent = `${newAddition.toString()} + ${sum.toString()} =`;
+    sum = sum + newAddition;
+    newAddition = 0;
+    result_1.textContent = sum.toString();
+  }
+  if (newSubtraction !== 0) {
+    result_2.textContent = `${newSubtraction.toString()} - ${sum.toString()} =`;
+    sum = newSubtraction - sum;
+    newSubtraction = 0;
+    result_1.textContent = sum.toString();
+  }
+});
+
+addition.addEventListener("click", (e) => {
+  e.preventDefault();
+  newAddition = sum;
+  sum = 0;
+  result_1.textContent = sum.toString();
+  result_2.classList.remove("display-hidden");
+  result_2.textContent = `${newAddition.toString()}  +`;
 });

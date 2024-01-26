@@ -25,6 +25,7 @@ result_2.classList.add("display-hidden"); // Hides second result when you start 
 var sum = 0;
 var sum2 = 0;
 var ifNumber;
+// Numbers
 function numbers(sum, number) {
     if (sum === 0) {
         result_1.textContent = number.toString();
@@ -141,4 +142,37 @@ zero.addEventListener("click", function (e) {
     if (typeof ifNumber === "number") {
         sum = ifNumber;
     }
+});
+// Operators
+var newAddition = 0;
+var newSubtraction = 0;
+reset.addEventListener("click", function (e) {
+    e.preventDefault();
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.add("display-hidden");
+    console.log(sum);
+});
+result_button.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (newAddition !== 0) {
+        result_2.textContent = "".concat(newAddition.toString(), " + ").concat(sum.toString(), " =");
+        sum = sum + newAddition;
+        newAddition = 0;
+        result_1.textContent = sum.toString();
+    }
+    if (newSubtraction !== 0) {
+        result_2.textContent = "".concat(newSubtraction.toString(), " - ").concat(sum.toString(), " =");
+        sum = newSubtraction - sum;
+        newSubtraction = 0;
+        result_1.textContent = sum.toString();
+    }
+});
+addition.addEventListener("click", function (e) {
+    e.preventDefault();
+    newAddition = sum;
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = "".concat(newAddition.toString(), "  +");
 });
