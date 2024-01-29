@@ -172,6 +172,8 @@ let newAddition: number = 0;
 let newSubtraction: number = 0;
 let newMultiplication: number = 0;
 let newDivide: number = 0;
+let newPower: number = 0;
+let newRoot: number = 0;
 
 reset.addEventListener("click", (e) => {
   e.preventDefault();
@@ -245,6 +247,7 @@ multiplication.addEventListener("click", (e) => {
   result_2.classList.remove("display-hidden");
   result_2.textContent = `${newMultiplication.toString()}  *`;
 });
+
 divide.addEventListener("click", (e) => {
   e.preventDefault();
   newDivide = sum;
@@ -252,4 +255,20 @@ divide.addEventListener("click", (e) => {
   result_1.textContent = sum.toString();
   result_2.classList.remove("display-hidden");
   result_2.textContent = `${newDivide.toString()}  /`;
+});
+
+power.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (newPower !== 0) {
+    newPower = Math.pow(newPower, 2);
+    sum = 0;
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = `${newPower.toString()}`;
+  } else {
+    newPower = Math.pow(sum, 2);
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = `${newPower.toString()}`;
+  }
 });

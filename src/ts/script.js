@@ -148,6 +148,8 @@ var newAddition = 0;
 var newSubtraction = 0;
 var newMultiplication = 0;
 var newDivide = 0;
+var newPower = 0;
+var newRoot = 0;
 reset.addEventListener("click", function (e) {
     e.preventDefault();
     sum = 0;
@@ -226,4 +228,20 @@ divide.addEventListener("click", function (e) {
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
     result_2.textContent = "".concat(newDivide.toString(), "  /");
+});
+power.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (newPower !== 0) {
+        newPower = Math.pow(newPower, 2);
+        sum = 0;
+        result_2.classList.remove("display-hidden");
+        result_2.textContent = "".concat(newPower.toString());
+    }
+    else {
+        newPower = Math.pow(sum, 2);
+        sum = 0;
+        result_1.textContent = sum.toString();
+        result_2.classList.remove("display-hidden");
+        result_2.textContent = "".concat(newPower.toString());
+    }
 });
