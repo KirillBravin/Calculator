@@ -170,6 +170,8 @@ zero.addEventListener("click", (e) => {
 
 let newAddition: number = 0;
 let newSubtraction: number = 0;
+let newMultiplication: number = 0;
+let newDivide: number = 0;
 
 reset.addEventListener("click", (e) => {
   e.preventDefault();
@@ -193,13 +195,61 @@ result_button.addEventListener("click", (e) => {
     newSubtraction = 0;
     result_1.textContent = sum.toString();
   }
+  if (newMultiplication !== 0) {
+    result_2.textContent = `${newMultiplication.toString()} * ${sum.toString()} =`;
+    sum = newMultiplication * sum;
+    newMultiplication = 0;
+    result_1.textContent = sum.toString();
+  }
+  if (newDivide !== 0) {
+    result_2.textContent = `${newDivide.toString()} / ${sum.toString()} =`;
+    sum = newDivide / sum;
+    if (Math.floor(sum) !== sum) {
+      result_1.textContent = sum.toFixed(2).toString();
+    } else {
+      result_1.textContent = sum.toString();
+    }
+    newDivide = 0;
+  }
 });
 
 addition.addEventListener("click", (e) => {
   e.preventDefault();
-  newAddition = sum;
+  if (newSubtraction != 0) {
+    newAddition = newSubtraction;
+  } else if (newMultiplication != 0) {
+    newAddition = newMultiplication;
+  } else {
+    newAddition = sum;
+  }
   sum = 0;
   result_1.textContent = sum.toString();
   result_2.classList.remove("display-hidden");
   result_2.textContent = `${newAddition.toString()}  +`;
+});
+
+subtraction.addEventListener("click", (e) => {
+  e.preventDefault();
+  newSubtraction = sum;
+  sum = 0;
+  result_1.textContent = sum.toString();
+  result_2.classList.remove("display-hidden");
+  result_2.textContent = `${newSubtraction.toString()}  -`;
+});
+
+multiplication.addEventListener("click", (e) => {
+  e.preventDefault();
+  newMultiplication = sum;
+  sum = 0;
+  result_1.textContent = sum.toString();
+  result_2.classList.remove("display-hidden");
+  result_2.textContent = `${newMultiplication.toString()}  *`;
+});
+divide.addEventListener("click", (e) => {
+  e.preventDefault();
+  newDivide = sum;
+  sum = 0;
+  result_1.textContent = sum.toString();
+  result_2.classList.remove("display-hidden");
+  result_2.textContent = `${newDivide.toString()}  /`;
 });

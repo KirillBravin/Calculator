@@ -146,6 +146,8 @@ zero.addEventListener("click", function (e) {
 // Operators
 var newAddition = 0;
 var newSubtraction = 0;
+var newMultiplication = 0;
+var newDivide = 0;
 reset.addEventListener("click", function (e) {
     e.preventDefault();
     sum = 0;
@@ -167,12 +169,61 @@ result_button.addEventListener("click", function (e) {
         newSubtraction = 0;
         result_1.textContent = sum.toString();
     }
+    if (newMultiplication !== 0) {
+        result_2.textContent = "".concat(newMultiplication.toString(), " * ").concat(sum.toString(), " =");
+        sum = newMultiplication * sum;
+        newMultiplication = 0;
+        result_1.textContent = sum.toString();
+    }
+    if (newDivide !== 0) {
+        result_2.textContent = "".concat(newDivide.toString(), " / ").concat(sum.toString(), " =");
+        sum = newDivide / sum;
+        if (Math.floor(sum) !== sum) {
+            result_1.textContent = sum.toFixed(2).toString();
+        }
+        else {
+            result_1.textContent = sum.toString();
+        }
+        newDivide = 0;
+    }
 });
 addition.addEventListener("click", function (e) {
     e.preventDefault();
-    newAddition = sum;
+    if (newSubtraction != 0) {
+        newAddition = newSubtraction;
+    }
+    else if (newMultiplication != 0) {
+        newAddition = newMultiplication;
+    }
+    else {
+        newAddition = sum;
+    }
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
     result_2.textContent = "".concat(newAddition.toString(), "  +");
+});
+subtraction.addEventListener("click", function (e) {
+    e.preventDefault();
+    newSubtraction = sum;
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = "".concat(newSubtraction.toString(), "  -");
+});
+multiplication.addEventListener("click", function (e) {
+    e.preventDefault();
+    newMultiplication = sum;
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = "".concat(newMultiplication.toString(), "  *");
+});
+divide.addEventListener("click", function (e) {
+    e.preventDefault();
+    newDivide = sum;
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    result_2.textContent = "".concat(newDivide.toString(), "  /");
 });
