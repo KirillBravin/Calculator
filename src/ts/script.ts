@@ -36,21 +36,38 @@ result_2.classList.add("display-hidden"); // Hides second result when you start 
 
 let sum: number = 0;
 let sum2: number = 0;
+let sumFloating: number = 0;
 let ifNumber: number | string;
+let pointerParam: boolean = false;
 
 // Numbers
 
 function numbers(sum: number, number: number): number | string {
   if (sum === 0) {
-    result_1.textContent = number.toString();
-    sum = number;
-    console.log(sum);
-    return sum;
+    if (pointerParam === true) {
+      sumFloating = number / 10;
+      result_1.textContent = sumFloating.toFixed(1).toString();
+      sum = sumFloating;
+      return sum;
+    } else {
+      result_1.textContent = number.toString();
+      sum = number;
+      console.log(sum);
+      return sum;
+    }
   } else if (sum > -999999 && sum < 999999 && result_1.textContent !== null) {
-    result_1.textContent = result_1.textContent.concat(number.toString());
-    sum = +result_1.textContent;
-    console.log(sum);
-    return sum;
+    if (pointerParam === true && Number.isInteger(sum)) {
+      sumFloating = number / 10;
+      number = number + sumFloating;
+      result_1.textContent = result_1.textContent.concat(number.toString());
+      sum = +result_1.textContent;
+      return sum;
+    } else {
+      result_1.textContent = result_1.textContent.concat(number.toString());
+      sum = +result_1.textContent;
+      console.log(sum);
+      return sum;
+    }
   } else if (sum > -9999999 && sum < 9999999 && result_1.textContent !== null) {
     result_1.style.fontSize = "70px";
     result_1.textContent = result_1.textContent.concat(number.toString());
@@ -184,6 +201,7 @@ reset.addEventListener("click", (e) => {
   newDivide = 0;
   newPower = 0;
   newRoot = 0;
+  pointerParam = false;
   result_1.textContent = sum.toString();
   result_2.classList.add("display-hidden");
   console.log(sum);
@@ -307,4 +325,9 @@ switch_button.addEventListener("click", (e) => {
   e.preventDefault();
   sum = -sum;
   result_1.textContent = sum.toString();
+});
+
+pointer.addEventListener("click", (e) => {
+  e.preventDefault();
+  pointerParam = !pointerParam;
 });
