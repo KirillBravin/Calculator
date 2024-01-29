@@ -55,11 +55,11 @@ function numbers(sum: number, number: number): number | string {
       console.log(sum);
       return sum;
     }
-  } else if (sum > -999999 && sum < 999999 && result_1.textContent !== null) {
+  } else if (sum.toString().length < 6 && result_1.textContent !== null) {
     if (pointerParam === true && Number.isInteger(sum)) {
       sumFloating = number / 10;
-      number = number + sumFloating;
-      result_1.textContent = result_1.textContent.concat(number.toString());
+      number = +result_1.textContent + sumFloating;
+      result_1.textContent = number.toString();
       sum = +result_1.textContent;
       return sum;
     } else {
@@ -68,33 +68,61 @@ function numbers(sum: number, number: number): number | string {
       console.log(sum);
       return sum;
     }
-  } else if (sum > -9999999 && sum < 9999999 && result_1.textContent !== null) {
-    result_1.style.fontSize = "70px";
-    result_1.textContent = result_1.textContent.concat(number.toString());
-    sum = +result_1.textContent;
-    console.log(sum);
-    return sum;
   } else if (
-    sum > -99999999 &&
-    sum < 99999999 &&
+    sum.toString().length >= 6 &&
+    sum.toString().length < 7 &&
+    result_1.textContent !== null
+  ) {
+    result_1.style.fontSize = "70px";
+    if (pointerParam === true && Number.isInteger(sum)) {
+      sumFloating = number / 10;
+      number = +result_1.textContent + sumFloating;
+      result_1.textContent = number.toString();
+      sum = +result_1.textContent;
+      return sum;
+    } else {
+      result_1.textContent = result_1.textContent.concat(number.toString());
+      sum = +result_1.textContent;
+      console.log(sum);
+      return sum;
+    }
+  } else if (
+    sum.toString().length >= 7 &&
+    sum.toString().length < 8 &&
     result_1.textContent !== null
   ) {
     result_1.style.fontSize = "60px";
-    result_1.textContent = result_1.textContent.concat(number.toString());
-    sum = +result_1.textContent;
-    console.log(sum);
-    return sum;
+    if (pointerParam === true && Number.isInteger(sum)) {
+      sumFloating = number / 10;
+      number = +result_1.textContent + sumFloating;
+      result_1.textContent = number.toString();
+      sum = +result_1.textContent;
+      return sum;
+    } else {
+      result_1.textContent = result_1.textContent.concat(number.toString());
+      sum = +result_1.textContent;
+      console.log(sum);
+      return sum;
+    }
   } else if (
-    sum > -999999999 &&
-    sum < 999999999 &&
+    sum.toString().length >= 8 &&
+    sum.toString().length < 9 &&
     result_1.textContent !== null
   ) {
     result_1.style.fontSize = "55px";
-    result_1.textContent = result_1.textContent.concat(number.toString());
-    sum = +result_1.textContent;
-    console.log(sum);
-    return sum;
-  } else if (sum <= -999999 || sum >= 999999) {
+    if (pointerParam === true && Number.isInteger(sum)) {
+      sumFloating = number / 10;
+      number = +result_1.textContent + sumFloating;
+      result_1.textContent = number.toString();
+      sum = +result_1.textContent;
+      return sum;
+    } else {
+      result_1.textContent = result_1.textContent.concat(number.toString());
+      sum = +result_1.textContent;
+      console.log(sum);
+      return sum;
+    }
+  } else if (sum.toString().length >= 9) {
     result_2.classList.remove("display-hidden");
     result_2.style.fontSize = "30px";
     return (result_2.textContent = "Error: The number is too big");
@@ -194,6 +222,7 @@ let newRoot: number = 0;
 
 reset.addEventListener("click", (e) => {
   e.preventDefault();
+  result_1.style.fontSize = "80px";
   sum = 0;
   newAddition = 0;
   newSubtraction = 0;
