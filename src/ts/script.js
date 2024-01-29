@@ -153,6 +153,12 @@ var newRoot = 0;
 reset.addEventListener("click", function (e) {
     e.preventDefault();
     sum = 0;
+    newAddition = 0;
+    newSubtraction = 0;
+    newMultiplication = 0;
+    newDivide = 0;
+    newPower = 0;
+    newRoot = 0;
     result_1.textContent = sum.toString();
     result_2.classList.add("display-hidden");
     console.log(sum);
@@ -178,10 +184,10 @@ result_button.addEventListener("click", function (e) {
         result_1.textContent = sum.toString();
     }
     if (newDivide !== 0) {
-        result_2.textContent = "".concat(newDivide.toString(), " / ").concat(sum.toString(), " =");
+        result_2.textContent = "".concat(newDivide.toString(), " \u00F7 ").concat(sum.toString(), " =");
         sum = newDivide / sum;
         if (Math.floor(sum) !== sum) {
-            result_1.textContent = sum.toFixed(2).toString();
+            result_1.textContent = sum.toFixed(6).toString();
         }
         else {
             result_1.textContent = sum.toString();
@@ -227,7 +233,7 @@ divide.addEventListener("click", function (e) {
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
-    result_2.textContent = "".concat(newDivide.toString(), "  /");
+    result_2.textContent = "".concat(newDivide.toString(), "  \u00F7");
 });
 power.addEventListener("click", function (e) {
     e.preventDefault();
@@ -244,4 +250,35 @@ power.addEventListener("click", function (e) {
         result_2.classList.remove("display-hidden");
         result_2.textContent = "".concat(newPower.toString());
     }
+});
+root.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (newRoot !== 0) {
+        newRoot = Math.sqrt(newRoot);
+        sum = 0;
+        result_2.classList.remove("display-hidden");
+        if (Math.floor(newRoot) !== newRoot) {
+            result_2.textContent = "".concat(newRoot.toFixed(6).toString());
+        }
+        else {
+            result_2.textContent = "".concat(newRoot.toString());
+        }
+    }
+    else {
+        newRoot = Math.sqrt(sum);
+        sum = 0;
+        result_1.textContent = sum.toString();
+        result_2.classList.remove("display-hidden");
+        if (Math.floor(newRoot) !== newRoot) {
+            result_2.textContent = "".concat(newRoot.toFixed(6).toString());
+        }
+        else {
+            result_2.textContent = "".concat(newRoot.toString());
+        }
+    }
+});
+switch_button.addEventListener("click", function (e) {
+    e.preventDefault();
+    sum = -sum;
+    result_1.textContent = sum.toString();
 });

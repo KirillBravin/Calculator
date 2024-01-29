@@ -178,6 +178,12 @@ let newRoot: number = 0;
 reset.addEventListener("click", (e) => {
   e.preventDefault();
   sum = 0;
+  newAddition = 0;
+  newSubtraction = 0;
+  newMultiplication = 0;
+  newDivide = 0;
+  newPower = 0;
+  newRoot = 0;
   result_1.textContent = sum.toString();
   result_2.classList.add("display-hidden");
   console.log(sum);
@@ -204,10 +210,10 @@ result_button.addEventListener("click", (e) => {
     result_1.textContent = sum.toString();
   }
   if (newDivide !== 0) {
-    result_2.textContent = `${newDivide.toString()} / ${sum.toString()} =`;
+    result_2.textContent = `${newDivide.toString()} ÷ ${sum.toString()} =`;
     sum = newDivide / sum;
     if (Math.floor(sum) !== sum) {
-      result_1.textContent = sum.toFixed(2).toString();
+      result_1.textContent = sum.toFixed(6).toString();
     } else {
       result_1.textContent = sum.toString();
     }
@@ -254,7 +260,7 @@ divide.addEventListener("click", (e) => {
   sum = 0;
   result_1.textContent = sum.toString();
   result_2.classList.remove("display-hidden");
-  result_2.textContent = `${newDivide.toString()}  /`;
+  result_2.textContent = `${newDivide.toString()}  ÷`;
 });
 
 power.addEventListener("click", (e) => {
@@ -271,4 +277,34 @@ power.addEventListener("click", (e) => {
     result_2.classList.remove("display-hidden");
     result_2.textContent = `${newPower.toString()}`;
   }
+});
+
+root.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (newRoot !== 0) {
+    newRoot = Math.sqrt(newRoot);
+    sum = 0;
+    result_2.classList.remove("display-hidden");
+    if (Math.floor(newRoot) !== newRoot) {
+      result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+    } else {
+      result_2.textContent = `${newRoot.toString()}`;
+    }
+  } else {
+    newRoot = Math.sqrt(sum);
+    sum = 0;
+    result_1.textContent = sum.toString();
+    result_2.classList.remove("display-hidden");
+    if (Math.floor(newRoot) !== newRoot) {
+      result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+    } else {
+      result_2.textContent = `${newRoot.toString()}`;
+    }
+  }
+});
+
+switch_button.addEventListener("click", (e) => {
+  e.preventDefault();
+  sum = -sum;
+  result_1.textContent = sum.toString();
 });
