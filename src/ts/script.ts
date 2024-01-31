@@ -252,11 +252,24 @@ result_button.addEventListener("click", (e) => {
     result_1.textContent = sum.toString();
   }
   if (newMultiplication !== 0) {
-    result_2.style.fontSize = "28px";
+    // result_2.style.fontSize = "28px";
+    let textLengthChecker = `${newMultiplication.toString()} * ${sum.toString()} =`;
+    if (textLengthChecker.length >= 9 && textLengthChecker.length < 12) {
+      result_2.style.fontSize = "69px";
+    } else if (
+      textLengthChecker.length >= 12 &&
+      textLengthChecker.length < 17
+    ) {
+      result_2.style.fontSize = "40px";
+    } else if (textLengthChecker.length >= 17) {
+      result_2.style.fontSize = "28px";
+    } else {
+      result_2.style.fontSize = "80px";
+    }
     result_2.textContent = `${newMultiplication.toString()} * ${sum.toString()} =`;
     sum = newMultiplication * sum;
     newMultiplication = 0;
-    if (sum.toString().length > 10) {
+    if (sum.toString().length > 8) {
       result_1.style.fontSize = "32px";
     }
     result_1.textContent = sum.toString();
