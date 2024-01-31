@@ -201,6 +201,7 @@ let newRoot = 0;
 reset.addEventListener("click", (e) => {
     e.preventDefault();
     result_1.style.fontSize = "80px";
+    result_2.style.fontSize = "80px";
     sum = 0;
     newAddition = 0;
     newSubtraction = 0;
@@ -259,7 +260,13 @@ addition.addEventListener("click", (e) => {
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
-    result_2.textContent = `${newAddition.toString()}  +`;
+    if (newAddition.toString().length > 6) {
+        result_2.style.fontSize = "59px";
+        result_2.textContent = `${newAddition.toString()}  +`;
+    }
+    else {
+        result_2.textContent = `${newAddition.toString()}  +`;
+    }
 });
 subtraction.addEventListener("click", (e) => {
     e.preventDefault();
@@ -267,7 +274,13 @@ subtraction.addEventListener("click", (e) => {
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
-    result_2.textContent = `${newSubtraction.toString()}  -`;
+    if (newSubtraction.toString().length > 6) {
+        result_2.style.fontSize = "59px";
+        result_2.textContent = `${newSubtraction.toString()}  -`;
+    }
+    else {
+        result_2.textContent = `${newSubtraction.toString()}  -`;
+    }
 });
 multiplication.addEventListener("click", (e) => {
     e.preventDefault();
@@ -275,7 +288,13 @@ multiplication.addEventListener("click", (e) => {
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
-    result_2.textContent = `${newMultiplication.toString()}  *`;
+    if (newMultiplication.toString().length > 6) {
+        result_2.style.fontSize = "59px";
+        result_2.textContent = `${newMultiplication.toString()}  *`;
+    }
+    else {
+        result_2.textContent = `${newMultiplication.toString()}  *`;
+    }
 });
 divide.addEventListener("click", (e) => {
     e.preventDefault();
@@ -283,7 +302,13 @@ divide.addEventListener("click", (e) => {
     sum = 0;
     result_1.textContent = sum.toString();
     result_2.classList.remove("display-hidden");
-    result_2.textContent = `${newDivide.toString()}  ÷`;
+    if (newDivide.toString().length > 6) {
+        result_2.style.fontSize = "59px";
+        result_2.textContent = `${newDivide.toString()}  ÷`;
+    }
+    else {
+        result_2.textContent = `${newDivide.toString()}  ÷`;
+    }
 });
 power.addEventListener("click", (e) => {
     e.preventDefault();
@@ -291,14 +316,26 @@ power.addEventListener("click", (e) => {
         newPower = Math.pow(newPower, 2);
         sum = 0;
         result_2.classList.remove("display-hidden");
-        result_2.textContent = `${newPower.toString()}`;
+        if (newPower.toString().length > 9) {
+            result_2.style.fontSize = "28px";
+            result_2.textContent = `${newPower.toString()}`;
+        }
+        else {
+            result_2.textContent = `${newPower.toString()}`;
+        }
     }
     else {
         newPower = Math.pow(sum, 2);
         sum = 0;
         result_1.textContent = sum.toString();
         result_2.classList.remove("display-hidden");
-        result_2.textContent = `${newPower.toString()}`;
+        if (newPower.toString().length > 9) {
+            result_2.style.fontSize = "28px";
+            result_2.textContent = `${newPower.toString()}`;
+        }
+        else {
+            result_2.textContent = `${newPower.toString()}`;
+        }
     }
 });
 root.addEventListener("click", (e) => {
@@ -308,10 +345,22 @@ root.addEventListener("click", (e) => {
         sum = 0;
         result_2.classList.remove("display-hidden");
         if (Math.floor(newRoot) !== newRoot) {
-            result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            if (newRoot.toString().length > 7) {
+                result_2.style.fontSize = "57px";
+                result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            }
+            else {
+                result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            }
         }
         else {
-            result_2.textContent = `${newRoot.toString()}`;
+            if (newRoot.toString().length > 7) {
+                result_2.style.fontSize = "57px";
+                result_2.textContent = `${newRoot.toString()}`;
+            }
+            else {
+                result_2.textContent = `${newRoot.toString()}`;
+            }
         }
     }
     else {
@@ -320,10 +369,22 @@ root.addEventListener("click", (e) => {
         result_1.textContent = sum.toString();
         result_2.classList.remove("display-hidden");
         if (Math.floor(newRoot) !== newRoot) {
-            result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            if (newRoot.toString().length > 7) {
+                result_2.style.fontSize = "57px";
+                result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            }
+            else {
+                result_2.textContent = `${newRoot.toFixed(6).toString()}`;
+            }
         }
         else {
-            result_2.textContent = `${newRoot.toString()}`;
+            if (newRoot.toString().length > 7) {
+                result_2.style.fontSize = "57px";
+                result_2.textContent = `${newRoot.toString()}`;
+            }
+            else {
+                result_2.textContent = `${newRoot.toString()}`;
+            }
         }
     }
 });
