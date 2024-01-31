@@ -252,9 +252,13 @@ result_button.addEventListener("click", (e) => {
     result_1.textContent = sum.toString();
   }
   if (newMultiplication !== 0) {
+    result_2.style.fontSize = "28px";
     result_2.textContent = `${newMultiplication.toString()} * ${sum.toString()} =`;
     sum = newMultiplication * sum;
     newMultiplication = 0;
+    if (sum.toString().length > 10) {
+      result_1.style.fontSize = "32px";
+    }
     result_1.textContent = sum.toString();
   }
   if (newDivide !== 0) {
