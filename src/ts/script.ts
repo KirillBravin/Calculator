@@ -131,6 +131,32 @@ function numbers(sum: number, number: number): number | string {
   }
 }
 
+function textLengthCheck(textTength: string) {
+  if (textTength.length >= 10 && textTength.length < 11) {
+    return (result_2.style.fontSize = "78px");
+  } else if (textTength.length >= 11 && textTength.length < 12) {
+    return (result_2.style.fontSize = "68px");
+  } else if (textTength.length >= 12 && textTength.length < 13) {
+    return (result_2.style.fontSize = "60px");
+  } else if (textTength.length >= 13 && textTength.length < 14) {
+    return (result_2.style.fontSize = "54px");
+  } else if (textTength.length >= 14 && textTength.length < 15) {
+    return (result_2.style.fontSize = "50px");
+  } else if (textTength.length >= 15 && textTength.length < 16) {
+    return (result_2.style.fontSize = "47px");
+  } else if (textTength.length >= 16 && textTength.length < 17) {
+    return (result_2.style.fontSize = "43px");
+  } else if (textTength.length >= 17 && textTength.length < 18) {
+    return (result_2.style.fontSize = "40px");
+  } else if (textTength.length >= 18 && textTength.length < 19) {
+    return (result_2.style.fontSize = "37px");
+  } else if (textTength.length >= 19 && textTength.length < 20) {
+    return (result_2.style.fontSize = "34px");
+  } else if (textTength.length >= 23) {
+    return (result_2.style.fontSize = "57px");
+  }
+}
+
 one.addEventListener("click", (e) => {
   e.preventDefault();
   ifNumber = numbers(sum, 1);
@@ -241,12 +267,14 @@ result_button.addEventListener("click", (e) => {
   e.preventDefault();
   if (newAddition !== 0) {
     result_2.textContent = `${newAddition.toString()} + ${sum.toString()} =`;
+    textLengthCheck(result_2.textContent);
     sum = sum + newAddition;
     newAddition = 0;
     result_1.textContent = sum.toString();
   }
   if (newSubtraction !== 0) {
     result_2.textContent = `${newSubtraction.toString()} - ${sum.toString()} =`;
+    textLengthCheck(result_2.textContent);
     sum = newSubtraction - sum;
     newSubtraction = 0;
     result_1.textContent = sum.toString();
@@ -283,61 +311,11 @@ result_button.addEventListener("click", (e) => {
     result_1.textContent = sum.toString();
   }
   if (newDivide !== 0) {
-    let textLengthChecker = `${newDivide.toString()} ÷ ${sum.toString()} =`;
-    if (textLengthChecker.length >= 10 && textLengthChecker.length < 11) {
-      result_2.style.fontSize = "78px";
-    } else if (
-      textLengthChecker.length >= 11 &&
-      textLengthChecker.length < 12
-    ) {
-      result_2.style.fontSize = "68px";
-    } else if (
-      textLengthChecker.length >= 12 &&
-      textLengthChecker.length < 13
-    ) {
-      result_2.style.fontSize = "60px";
-    } else if (
-      textLengthChecker.length >= 13 &&
-      textLengthChecker.length < 14
-    ) {
-      result_2.style.fontSize = "54px";
-    } else if (
-      textLengthChecker.length >= 14 &&
-      textLengthChecker.length < 15
-    ) {
-      result_2.style.fontSize = "50px";
-    } else if (
-      textLengthChecker.length >= 15 &&
-      textLengthChecker.length < 16
-    ) {
-      result_2.style.fontSize = "47px";
-    } else if (
-      textLengthChecker.length >= 16 &&
-      textLengthChecker.length < 17
-    ) {
-      result_2.style.fontSize = "43px";
-    } else if (
-      textLengthChecker.length >= 17 &&
-      textLengthChecker.length < 18
-    ) {
-      result_2.style.fontSize = "40px";
-    } else if (
-      textLengthChecker.length >= 18 &&
-      textLengthChecker.length < 19
-    ) {
-      result_2.style.fontSize = "37px";
-    } else if (
-      textLengthChecker.length >= 19 &&
-      textLengthChecker.length < 20
-    ) {
-      result_2.style.fontSize = "34px";
-    } else if (textLengthChecker.length >= 23) {
-      result_2.style.fontSize = "57px";
-    }
     result_2.textContent = `${newDivide.toString()} ÷ ${sum.toString()} =`;
+    textLengthCheck(result_2.textContent);
     sum = newDivide / sum;
     if (Math.floor(sum) !== sum) {
-      result_1.textContent = sum.toFixed(6).toString();
+      result_1.textContent = sum.toFixed(8).toString();
       if (
         result_1.textContent.length >= 8 &&
         result_1.textContent.length < 10
