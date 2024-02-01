@@ -265,13 +265,72 @@ result_button.addEventListener("click", (e) => {
         result_1.textContent = sum.toString();
     }
     if (newDivide !== 0) {
+        let textLengthChecker = `${newDivide.toString()} ÷ ${sum.toString()} =`;
+        if (textLengthChecker.length >= 10 && textLengthChecker.length < 11) {
+            result_2.style.fontSize = "78px";
+        }
+        else if (textLengthChecker.length >= 11 &&
+            textLengthChecker.length < 12) {
+            result_2.style.fontSize = "68px";
+        }
+        else if (textLengthChecker.length >= 12 &&
+            textLengthChecker.length < 13) {
+            result_2.style.fontSize = "60px";
+        }
+        else if (textLengthChecker.length >= 13 &&
+            textLengthChecker.length < 14) {
+            result_2.style.fontSize = "54px";
+        }
+        else if (textLengthChecker.length >= 14 &&
+            textLengthChecker.length < 15) {
+            result_2.style.fontSize = "50px";
+        }
+        else if (textLengthChecker.length >= 15 &&
+            textLengthChecker.length < 16) {
+            result_2.style.fontSize = "47px";
+        }
+        else if (textLengthChecker.length >= 16 &&
+            textLengthChecker.length < 17) {
+            result_2.style.fontSize = "43px";
+        }
+        else if (textLengthChecker.length >= 17 &&
+            textLengthChecker.length < 18) {
+            result_2.style.fontSize = "40px";
+        }
+        else if (textLengthChecker.length >= 18 &&
+            textLengthChecker.length < 19) {
+            result_2.style.fontSize = "37px";
+        }
+        else if (textLengthChecker.length >= 19 &&
+            textLengthChecker.length < 20) {
+            result_2.style.fontSize = "34px";
+        }
+        else if (textLengthChecker.length >= 23) {
+            result_2.style.fontSize = "57px";
+        }
         result_2.textContent = `${newDivide.toString()} ÷ ${sum.toString()} =`;
         sum = newDivide / sum;
         if (Math.floor(sum) !== sum) {
             result_1.textContent = sum.toFixed(6).toString();
+            if (result_1.textContent.length >= 8 &&
+                result_1.textContent.length < 10) {
+                result_1.style.fontSize = "67px";
+            }
+            else if (result_1.textContent.length >= 10 &&
+                result_1.textContent.length < 12) {
+                result_1.style.fontSize = "58px";
+            }
         }
         else {
             result_1.textContent = sum.toString();
+            if (result_1.textContent.length >= 8 &&
+                result_1.textContent.length < 10) {
+                result_1.style.fontSize = "67px";
+            }
+            else if (result_1.textContent.length >= 10 &&
+                result_1.textContent.length < 12) {
+                result_1.style.fontSize = "58px";
+            }
         }
         newDivide = 0;
     }
@@ -337,7 +396,7 @@ divide.addEventListener("click", (e) => {
     result_1.style.fontSize = "80px";
     result_2.classList.remove("display-hidden");
     if (newDivide.toString().length > 6) {
-        result_2.style.fontSize = "59px";
+        result_2.style.fontSize = "58px";
         result_2.textContent = `${newDivide.toString()}  ÷`;
     }
     else {
