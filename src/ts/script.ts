@@ -131,29 +131,39 @@ function numbers(sum: number, number: number): number | string {
   }
 }
 
-function textLengthCheck(textTength: string) {
-  if (textTength.length >= 10 && textTength.length < 11) {
+function textLengthCheck(textLength: string) {
+  if (textLength.length >= 10 && textLength.length < 11) {
     return (result_2.style.fontSize = "78px");
-  } else if (textTength.length >= 11 && textTength.length < 12) {
+  } else if (textLength.length >= 11 && textLength.length < 12) {
     return (result_2.style.fontSize = "68px");
-  } else if (textTength.length >= 12 && textTength.length < 13) {
+  } else if (textLength.length >= 12 && textLength.length < 13) {
     return (result_2.style.fontSize = "60px");
-  } else if (textTength.length >= 13 && textTength.length < 14) {
+  } else if (textLength.length >= 13 && textLength.length < 14) {
     return (result_2.style.fontSize = "54px");
-  } else if (textTength.length >= 14 && textTength.length < 15) {
+  } else if (textLength.length >= 14 && textLength.length < 15) {
     return (result_2.style.fontSize = "50px");
-  } else if (textTength.length >= 15 && textTength.length < 16) {
+  } else if (textLength.length >= 15 && textLength.length < 16) {
     return (result_2.style.fontSize = "47px");
-  } else if (textTength.length >= 16 && textTength.length < 17) {
+  } else if (textLength.length >= 16 && textLength.length < 17) {
     return (result_2.style.fontSize = "43px");
-  } else if (textTength.length >= 17 && textTength.length < 18) {
+  } else if (textLength.length >= 17 && textLength.length < 18) {
     return (result_2.style.fontSize = "40px");
-  } else if (textTength.length >= 18 && textTength.length < 19) {
+  } else if (textLength.length >= 18 && textLength.length < 19) {
     return (result_2.style.fontSize = "37px");
-  } else if (textTength.length >= 19 && textTength.length < 20) {
+  } else if (textLength.length >= 19 && textLength.length < 20) {
     return (result_2.style.fontSize = "34px");
-  } else if (textTength.length >= 23) {
+  } else if (textLength.length >= 23) {
     return (result_2.style.fontSize = "57px");
+  }
+}
+
+function textLengthCheckerDivide(textLength: string) {
+  if (textLength.length >= 8 && textLength.length < 10) {
+    result_1.style.fontSize = "67px";
+  } else if (textLength.length >= 10 && textLength.length < 12) {
+    result_1.style.fontSize = "58px";
+  } else if (textLength.length >= 12 && textLength.length < 14) {
+    result_1.style.fontSize = "54px";
   }
 }
 
@@ -316,30 +326,10 @@ result_button.addEventListener("click", (e) => {
     sum = newDivide / sum;
     if (Math.floor(sum) !== sum) {
       result_1.textContent = sum.toFixed(8).toString();
-      if (
-        result_1.textContent.length >= 8 &&
-        result_1.textContent.length < 10
-      ) {
-        result_1.style.fontSize = "67px";
-      } else if (
-        result_1.textContent.length >= 10 &&
-        result_1.textContent.length < 12
-      ) {
-        result_1.style.fontSize = "58px";
-      }
+      textLengthCheckerDivide(result_1.textContent);
     } else {
       result_1.textContent = sum.toString();
-      if (
-        result_1.textContent.length >= 8 &&
-        result_1.textContent.length < 10
-      ) {
-        result_1.style.fontSize = "67px";
-      } else if (
-        result_1.textContent.length >= 10 &&
-        result_1.textContent.length < 12
-      ) {
-        result_1.style.fontSize = "58px";
-      }
+      textLengthCheckerDivide(result_1.textContent);
     }
     newDivide = 0;
   }
