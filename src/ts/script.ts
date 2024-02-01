@@ -164,6 +164,8 @@ function textLengthCheckerDivide(textLength: string) {
     result_1.style.fontSize = "58px";
   } else if (textLength.length >= 12 && textLength.length < 14) {
     result_1.style.fontSize = "54px";
+  } else if (textLength.length >= 14) {
+    result_1.style.fontSize = "35px";
   }
 }
 
