@@ -269,7 +269,15 @@ result_button.addEventListener("click", (e) => {
     result_2.textContent = `${newMultiplication.toString()} * ${sum.toString()} =`;
     sum = newMultiplication * sum;
     newMultiplication = 0;
-    if (sum.toString().length > 8) {
+    if (sum.toString().length >= 8 && sum.toString().length < 9) {
+      result_1.style.fontSize = "58px";
+    } else if (sum.toString().length >= 9 && sum.toString().length < 13) {
+      result_1.style.fontSize = "51px";
+    } else if (sum.toString().length >= 9 && sum.toString().length < 14) {
+      result_1.style.fontSize = "46px";
+    } else if (sum.toString().length >= 9 && sum.toString().length < 15) {
+      result_1.style.fontSize = "41px";
+    } else {
       result_1.style.fontSize = "32px";
     }
     result_1.textContent = sum.toString();
@@ -297,6 +305,7 @@ addition.addEventListener("click", (e) => {
   }
   sum = 0;
   result_1.textContent = sum.toString();
+  result_1.style.fontSize = "80px";
   result_2.classList.remove("display-hidden");
   if (newAddition.toString().length > 6) {
     result_2.style.fontSize = "59px";
@@ -311,6 +320,7 @@ subtraction.addEventListener("click", (e) => {
   newSubtraction = sum;
   sum = 0;
   result_1.textContent = sum.toString();
+  result_1.style.fontSize = "80px";
   result_2.classList.remove("display-hidden");
   if (newSubtraction.toString().length > 6) {
     result_2.style.fontSize = "59px";
@@ -325,6 +335,7 @@ multiplication.addEventListener("click", (e) => {
   newMultiplication = sum;
   sum = 0;
   result_1.textContent = sum.toString();
+  result_1.style.fontSize = "80px";
   result_2.classList.remove("display-hidden");
   if (newMultiplication.toString().length > 6) {
     result_2.style.fontSize = "59px";
@@ -339,6 +350,7 @@ divide.addEventListener("click", (e) => {
   newDivide = sum;
   sum = 0;
   result_1.textContent = sum.toString();
+  result_1.style.fontSize = "80px";
   result_2.classList.remove("display-hidden");
   if (newDivide.toString().length > 6) {
     result_2.style.fontSize = "59px";
